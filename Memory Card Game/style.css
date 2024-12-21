@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #6f51ff;
+}
+.wrapper{
+    height: 400px;
+    width: 400px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+.cards, .card, view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cards{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cards .card{
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%, 100{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translateX(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
+}
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    background: #fff;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+.cards .front-view span{
+    color: #6f51ff;
+    font-size: 40px;
+}
+.card .back-view{
+   transform: rotateY( -90deg);
+}
+.card .back-view img{
+    max-width: 45px;
+}
+.card.flip .front-view{
+    transform: rotateY(180deg);
+}
+.card.flip .back-view{
+    transform: rotateY(0);
+}
+.btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newGame{
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    color: #6f51ff;
+    background-color: white;
+    justify-content: center;
+    border: none;
+    align-items: center;
+    border-radius: 0.3rem;
+}
+.step-container{
+    font-size: 1.3rem;
+    color: white;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6f51ff;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+.timer-container{
+    font-size: 1.3rem;
+    color: white;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6f51ff;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+.step{
+    text-align: center;
+}
+.btns{
+    gap: 5px;
+    height: 100px;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     
+}
+.winneroff{
+    display: none;
+}
+/* I Phone 7 */
+@media (min-width: 0px) and (max-width: 320px) {
+    .wrapper{
+        height: 320px;
+    }
+}
